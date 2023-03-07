@@ -4,7 +4,7 @@ import { DateTime } from 'luxon'
 import { Response } from '../vendor.js'
 
 export async function request(url: string, options?: { method?: string, headers?: { [key: string]: string }, body?: string, ignoreStatusCode?: boolean }): Promise<Response> {
-	const response = await axios({ url: url, method: options?.method as Method, headers: {...options?.headers/*, 'User-Agent': 'SchulNetz Client Test Environment'*/}, data: options?.body, maxRedirects: 0, validateStatus: () =>  true })
+	const response = await axios({ url: url, method: options?.method as Method, headers: {...options?.headers, 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0'}, data: options?.body, maxRedirects: 0, validateStatus: () =>  true })
 	
 	if(!response) {
 		throw `${url}: NO HTTP RESPONSE`
